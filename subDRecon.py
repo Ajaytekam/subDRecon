@@ -97,7 +97,7 @@ def Banner():
     print("# version : 0.1")
     print("############################################\n")
 
-def printInfo():
+def printInfo(Domain, OPDir):
     print(co.bullets.INFO, co.colors.CYAN+"Target Domain : {}".format(Domain)+co.END)
     print(co.bullets.INFO, co.colors.CYAN+"Result Dir    : {}".format(OPDir)+co.END)
 
