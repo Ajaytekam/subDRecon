@@ -40,10 +40,6 @@ def PassiveRecon(Domain, OPDir):
     COMMAND = 'assetfinder --subs-only {} >> assetfinder.txt'.format(Domain)
     print(co.bullets.CProcess, co.colors.GREEN+"Passive subdomain enum with assetfinder"+co.END)
     executeCommand(COMMAND)
-    # assetfinder scan 
-    COMMAND = 'assetfinder --subs-only {} >> assetfinder.txt'.format(Domain)
-    print(co.bullets.CProcess, co.colors.GREEN+"Passive subdomain enum with assetfinder"+co.END)
-    executeCommand(COMMAND)
     # findomain scan 
     COMMAND = 'findomain -q --target {} --threads 20 >> findomain.txt'.format(Domain)
     print(co.bullets.CProcess, co.colors.GREEN+"Passive subdomain enum with findomain"+co.END)
@@ -141,9 +137,6 @@ def main():
     os.mkdir(OPDir) 
     # starts reconnaissance
     Banner()
-    txtmessage = "Pasive subdomain Reconnaissance Staretd for domain : {}".format(Domain)
-    NotifyTelegramBot(txtmessage)
-    PassiveRecon(Domain, OPDir)
     txtmessage = "Active subdomain Reconnaissance Staretd for domain : {}".format(Domain)
     NotifyTelegramBot(txtmessage)
     if args.passive:
