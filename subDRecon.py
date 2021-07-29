@@ -71,7 +71,7 @@ def ActiveRecon(Domain, OPDir):
     if os.path.isfile(WordList):
         with open("commonspeak2_subd.txt", "w") as f:
             for word in open(WordList, "r"):
-                f.write("{}.{}".format(word.strip("\n"), Domain))
+                f.write("{}.{}\n".format(word.strip("\n"), Domain))
     # merging and sorting all files       
     COMMAND = 'cat dnsgen_subs.txt commonspeak2_subd.txt PassiveSubD.txt | sort -u >> AllSubD.txt'
     print(co.bullets.CProcess, co.colors.GREEN+"Merging all Subdomain files"+co.END)
