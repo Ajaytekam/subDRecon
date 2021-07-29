@@ -97,6 +97,10 @@ def Banner():
     print("# version : 0.1")
     print("############################################\n")
 
+def printInfo():
+    print(co.bullets.INFO, co.colors.CYAN+"Target Domain : {}".format(Domain)+co.END)
+    print(co.bullets.INFO, co.colors.CYAN+"Result Dir    : {}".format(OPDir)+co.END)
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-u", "--url", help="Domain name to perform reconnaissance")
@@ -109,6 +113,7 @@ def main():
         parser.print_help()
         sys.exit()
     ## GLOBAL Vars
+    Banner()
     Domain = ""  # Domain name with protocol 
     OPDir = ""   # Output Directory 
     # validae url
@@ -121,27 +126,28 @@ def main():
     if args.out is not None:
         OPDir = args.out
         if os.path.isdir(OPDir):
-            print(co.bullets.INFO+"{} already exists...".format(OPDir)+co.END)
-            print(co.bullets.INFO+"Adding time-stamp into the directory name as suffix"+co.END)
+            print(co.bullets.INFO, co.colors.CYAN+"{} already exists...".format(OPDir)+co.END)
+            print(co.bullets.INFO, co.colors.CYAN+"Adding time-stamp into the directory name as suffix"+co.END)
             Date = str(datetime.datetime.now())
             WORKDIR = re.sub("-|:|\.|\ ", "_", Date)
             OPDir += "_{}".format(WORKDIR)
     else:
         OPDir = "./subDomainrecon_{}".format(Domain)
         if os.path.isdir(OPDir):
-            print(co.bullets.INFO+"{} already exists...".format(OPDir)+co.END)
-            print(co.bullets.INFO+"[+] Adding time-stamp into the directory name as suffix"+co.END)
+            print(co.bullets.INFO, co.colors.CYAN+"{} already exists...".format(OPDir)+co.END)
+            print(co.bullets.INFO, co.colors.CYAN+"Adding time-stamp into the directory name as suffix"+co.END)
             Date = str(datetime.datetime.now())
             WORKDIR = re.sub("-|:|\.|\ ", "_", Date)
             OPDir += "_{}".format(WORKDIR)
     os.mkdir(OPDir) 
     # starts reconnaissance
-    Banner()
     txtmessage = "Active subdomain Reconnaissance Staretd for domain : {}".format(Domain)
     NotifyTelegramBot(txtmessage)
     if args.passive:
+        printInfo(Domain, OPDir)
         PassiveRecon(Domain, OPDir)
     else:
+        printInfo(Domain, OPDir)
         PassiveRecon(Domain, OPDir)
         ActiveRecon(Domain, OPDir)
     txtmessage = "SubDomain reconnaissance Completed : {}".format(Domain)
