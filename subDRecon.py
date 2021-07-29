@@ -81,7 +81,7 @@ def ActiveRecon(Domain, OPDir):
     COMMAND = 'wget https://raw.githubusercontent.com/janmasarik/resolvers/master/resolvers.txt > /dev/null 2>&1'
     print(co.bullets.CProcess, co.colors.GREEN+"Downloading working resolver list"+co.END)
     executeCommand(COMMAND)
-    COMMAND = 'massdns -s 15000 -r resolvers.txt -t A initialSubdomains.txt -o S -w massdnsResults.txt > /dev/null 2>&1'
+    COMMAND = 'massdns -s 15000 -r resolvers.txt -t A AllSubD.txt -o S -w massdnsResults.txt > /dev/null 2>&1'
     print(co.bullets.CProcess, co.colors.GREEN+"Running massdns on collected subdomains"+co.END)
     executeCommand(COMMAND)
     # delete temp files 
