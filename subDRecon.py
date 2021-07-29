@@ -32,7 +32,7 @@ def ValideteDomain(domain):
 
 def PassiveRecon(Domain, OPDir):
     # Amass Scan
-    COMMAND = 'amass enum --passive -o amass.txt -d {}'.format(Domain)
+    COMMAND = 'amass enum --passive -o amass.txt -d {} > /dev/null 2>&1'.format(Domain)
     print(co.bullets.CProcess, co.colors.GREEN+"Passive subdomain enum with amass"+co.END)
     executeCommand(COMMAND)
     # assetfinder scan 
@@ -79,7 +79,7 @@ def ActiveRecon(Domain, OPDir):
     executeCommand(COMMAND)
     # run Massdns scan on AllSubD.txt list
     # resolver is downloaded from repository : https://github.com/janmasarik/resolvers
-    COMMAND = 'wget https://raw.githubusercontent.com/janmasarik/resolvers/master/resolvers.txt && massdns -s 15000 -r resolvers.txt -t A initialSubdomains.txt -o S -w massdnsResults.txt'
+    COMMAND = 'wget https://raw.githubusercontent.com/janmasarik/resolvers/master/resolvers.txt && massdns -s 15000 -r resolvers.txt -t A initialSubdomains.txt -o S -w massdnsResults.txt > /dev/null 2>&1'
     print(co.bullets.CProcess, co.colors.GREEN+"Running massdns on collected subdomains"+co.END)
     executeCommand(COMMAND)
     # delete temp files 
