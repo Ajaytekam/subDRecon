@@ -16,9 +16,9 @@ def executeCommand(COMMAND, verbose=False):
     try:
         subprocess.run(COMMAND, shell=True, check=True, text=True)
         if verbose:
-            print("\t"+co.bullets.OK, co.colors.GREEN++"Command Executed Successfully."+co.END)
+            print("\t"+co.bullets.OK+co.colors.GREEN+"Command Executed Successfully."+co.END)
     except subprocess.CalledProcessError as e:
-        print("\t"+co.bullets.ERROR, co.colors.BRED++"Error During Command Execution.!!"+co.END)
+        print("\t"+co.bullets.ERROR+co.colors.BRED+"Error During Command Execution.!!"+co.END)
         print(e.output)
     return 
 
@@ -78,7 +78,10 @@ def ActiveRecon(Domain, OPDir):
     executeCommand(COMMAND)
     # run Massdns scan on AllSubD.txt list
     # resolver is downloaded from repository : https://github.com/janmasarik/resolvers
-    COMMAND = 'wget https://raw.githubusercontent.com/janmasarik/resolvers/master/resolvers.txt && massdns -s 15000 -r resolvers.txt -t A initialSubdomains.txt -o S -w massdnsResults.txt > /dev/null 2>&1'
+    COMMAND = 'wget https://raw.githubusercontent.com/janmasarik/resolvers/master/resolvers.txt > /dev/null 2>&1'
+    print(co.bullets.CProcess, co.colors.GREEN+"Downloading working resolver list"+co.END)
+    executeCommand(COMMAND)
+    COMMAND = 'massdns -s 15000 -r resolvers.txt -t A initialSubdomains.txt -o S -w massdnsResults.txt > /dev/null 2>&1'
     print(co.bullets.CProcess, co.colors.GREEN+"Running massdns on collected subdomains"+co.END)
     executeCommand(COMMAND)
     # delete temp files 
