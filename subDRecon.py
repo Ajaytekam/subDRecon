@@ -69,7 +69,7 @@ def ActiveRecon(Domain, OPDir):
     print(co.bullets.CProcess, co.colors.GREEN+"Generating subdomain using CommanSpeak2 wordlist"+co.END)
     WordList = "/root/tools/wordlists/commonspeak2.txt"
     if os.path.isfile(WordList):
-        with open("commonspeak2_subd.txt", "w"):
+        with open("commonspeak2_subd.txt", "w") as f:
             for word in open(WordList, "r"):
                 f.write("{}.{}".format(word.strip("\n"), Domain))
     # merging and sorting all files       
