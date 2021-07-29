@@ -32,7 +32,7 @@ def ValideteDomain(domain):
 
 def PassiveRecon(Domain, OPDir):
     # Amass Scan
-    COMMAND = 'asmass enum --passive -o amass.txt -d {}'.format(Domain)
+    COMMAND = 'amass enum --passive -o amass.txt -d {}'.format(Domain)
     print(co.bullets.CProcess, co.colors.GREEN+"Passive subdomain enum with amass"+co.END)
     executeCommand(COMMAND)
     # assetfinder scan 
