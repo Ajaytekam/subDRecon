@@ -68,7 +68,7 @@ def ActiveRecon(Domain, OPDir):
     # CommonSpeak2 repo : 
     print(co.bullets.CProcess, co.colors.GREEN+"Generating subdomain using CommanSpeak2 wordlist"+co.END)
     WordList = "/root/tools/wordlists/commonspeak2.txt"
-    if os.path.isfile(FilePath):
+    if os.path.isfile(WordList):
         with open("commonspeak2_subd.txt", "w"):
             for word in open(WordList, "r"):
                 f.write("{}.{}".format(word.strip("\n"), Domain))
@@ -99,7 +99,7 @@ def Banner():
 
 def printInfo(Domain, OPDir):
     print(co.bullets.INFO, co.colors.CYAN+"Target Domain : {}".format(Domain)+co.END)
-    print(co.bullets.INFO, co.colors.CYAN+"Result Dir    : {}".format(OPDir)+co.END)
+    print(co.bullets.INFO, co.colors.CYAN+"Result Dir    : {}\n".format(OPDir)+co.END)
 
 def main():
     parser = argparse.ArgumentParser()
