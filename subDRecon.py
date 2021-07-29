@@ -31,6 +31,7 @@ def ValideteDomain(domain):
         return False
 
 def PassiveRecon(Domain, OPDir):
+    os.chdir(OPDir)
     # Amass Scan
     COMMAND = 'amass enum --passive -o amass.txt -d {} > /dev/null 2>&1'.format(Domain)
     print(co.bullets.CProcess, co.colors.GREEN+"Passive subdomain enum with amass"+co.END)
@@ -58,8 +59,10 @@ def PassiveRecon(Domain, OPDir):
         os.remove("assetfinder.txt")
     if os.path.isfile("findomain.txt"):
         os.remove("findomain.txt")
+    os.chdir("..")
 
 def ActiveRecon(Domain, OPDir):
+    os.chdir(OPDir)
     # Generating domains with dnsgen 
     print(co.bullets.CProcess, co.colors.GREEN+"Generating subdomain with dnsgen"+co.END)
     with open("dnsgen_subs.txt", "w") as f:
@@ -89,6 +92,7 @@ def ActiveRecon(Domain, OPDir):
         os.remove("commonspeak2_subd.txt")
     if os.path.isfile("resolvers.txt"):
         os.remove("resolvers.txt")
+    os.chdir("..")
 
 def Banner():
     print("############################################")
@@ -142,7 +146,6 @@ def main():
     PassiveRecon(Domain, OPDir)
     txtmessage = "Active subdomain Reconnaissance Staretd for domain : {}".format(Domain)
     NotifyTelegramBot(txtmessage)
-    os.chdir(OPDir)
     if args.passive:
         PassiveRecon(Domain, OPDir)
     else:
