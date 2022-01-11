@@ -18,11 +18,11 @@ apt install python3.9 python3-pip -y
 pip3 install virtualenv  
 
 # install golang
-# current version go1.16.5.linux-amd64.tar.gz
+# current version go1.17.6.linux-amd64.tar.gz
 echo -e "${YB}[*]${NC} Install golang binaries..."
-curl -sSL https://golang.org/dl/go1.16.5.linux-amd64.tar.gz -o go1.16.5.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.16.5.linux-amd64.tar.gz
-rm go1.16.5.linux-amd64.tar.gz
+curl -sSL https://dl.google.com/go/go1.17.6.linux-amd64.tar.gz -o go1.17.6.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.17.6.linux-amd64.tar.gz
+rm go1.17.6.linux-amd64.tar.gz
 echo "export GOROOT=/usr/local/go" >> ~/.bashrc
 echo "export GOPATH=\$HOME/go" >> ~/.bashrc 
 echo "export PATH=\$GOPATH/bin:\$GOROOT/bin:\$PATH" >> ~/.bashrc

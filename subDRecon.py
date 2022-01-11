@@ -95,9 +95,9 @@ def ActiveRecon(Domain, OPDir):
 
 def Banner():
     print("############################################")
-    print("# "+co.BOLD+co.colors.GREEN+"subDRecon"+co.END+co.BOLD+" : SubDaoman Reconnaissance Tool"+co.END)
-    print("# "+co.BOLD+"Developed by : "+co.colors.RED+"securebitlabs.com"+co.END)
-    print("# version : 0.1")
+    print("# "+co.BOLD+co.colors.GREEN+"subDRecon : SubDomain Reconnaissance Tool"+co.END)
+    print("# Author  : "+co.colors.CYAN+"Ajay Kumar Tekam [ ajaytekam.github.io ]"+co.END)
+    print("# Version : 0.1")
     print("############################################\n")
 
 def printInfo(Domain, OPDir):

@@ -1,24 +1,32 @@
-# subDRecon 
+## subDRecon 
 
-## SubDomain  Reconnaissance 
+Automated SubDomain Reconnaissance script. 
 
-**Tools used :** amass, assetfinder, findomain, dnsgen, commonspeak2 list, massdns
+![](sc.png)   
 
-**Install Requirements :**  
+__How it Works :__     
+
+* Collect subdomains from active and passive methods using amass, assetfinder, findomain. 
+* Generate subdomain using dnsgen and commonspeak2.  
+* varify all the live subdomains via dns bruteforcing using massdns.     
+
+__Tools used :__      
+
+* [amass](https://github.com/OWASP/Amass)   
+* [assetfinder](https://github.com/tomnomnom/assetfinder)   
+* [findomain](https://github.com/Findomain/Findomain)  
+* [dnsgen](https://github.com/ProjectAnte/dnsgen)   
+* [massdns](https://github.com/blechschmidt/massdns)   
+
+__Install Requirements :__   
 
 ```  
 pip3 install -r requirements.txt
 ```  
 
-**Usage :**  
+__Usage :__     
 
 ```  
-############################################
-# subDRecon : SubDaoman Reconnaissance Tool
-# Developed by : securebitlabs.com
-# version : 0.1
-############################################
-
 usage: subDRecon.py [-h] [-u URL] [-o OUT] [-p]
 
 optional arguments:
@@ -29,7 +37,7 @@ optional arguments:
 ```  
 
 
-**Telegram Bot :** Needs to be added `/root/notificationConfig.ini` file on server. 
+__Telegram Bot :__ Needs to be added `/root/notificationConfig.ini` file on server.    
 
 ```
 [telegram]
